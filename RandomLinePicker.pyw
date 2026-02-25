@@ -28,33 +28,33 @@ class RandomLinePicker:
         self._askAndLoadFile()
         self._window.mainloop()
 
-
     def _onWindowResize(self, event):
         self._textFont.config(size=-int(event.width / 1920 * 100))
-
 
     def _nextLine(self, *_):
         line = ""
         if self._lineList:
             line = self._lineList.pop()
-            
-        self._randomWord.config(text=line)
 
+        self._randomWord.config(text=line)
 
     def _exit(self, *_):
         self._window.destroy()
 
-
     def _askAndLoadFile(self, *_):
         self._window.update()
-        filePath = filedialog.askopenfilename(initialdir=".", title="Select a File", filetypes=(("Text files", "*.txt*"), ("all files", "*.*")))
+        filePath = filedialog.askopenfilename(
+            initialdir=".",
+            title="Select a File",
+            filetypes=(("Text files", "*.txt*"), ("all files", "*.*")),
+        )
 
         self._lineList = []
-        with open(filePath, "r", encoding='utf-8') as file:
+        with open(filePath, "r", encoding="utf-8") as file:
             for line in file:
                 if line.strip() != "":
                     self._lineList.append(line.strip())
-        
+
         random.shuffle(self._lineList)
         self._nextLine()
 
