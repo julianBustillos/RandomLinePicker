@@ -1,7 +1,10 @@
 [project]
-name = "RandomLinePicker"
-version = "0.1.0"
-description = "Add your description here"
+name = "random-line-picker"
+version = "1.0"
+description = "Python GUI that shows random lines from text file."
+authors = [
+  {name = "Julian Bustillos", email = "bustillosjulian@gmail.com"},
+]
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
